@@ -19,7 +19,7 @@ namespace JusiJSONHelperTest
             try
             {
                 IOBrokerJSONGet ioJson = new IOBrokerJSONGet();
-                IOBrokerWebConnector wc = new IOBrokerWebConnector();
+                IOBrokerClusterConnector wc = new IOBrokerClusterConnector();
                 ioJson= wc.GetIOBrokerValue("zwave2.0.Node_003.Multilevel_Sensor.humidity");
                                 
 
@@ -38,8 +38,8 @@ namespace JusiJSONHelperTest
             try
             {
                 IOBrokerJSONSet ioJson = new IOBrokerJSONSet();
-                IOBrokerWebConnector wc = new IOBrokerWebConnector();
-                ioJson = wc.SetIOBrokerValue("zwave2.0.Node_031.Binary_Switch.targetValue", false);
+                IOBrokerClusterConnector wc = new IOBrokerClusterConnector();
+                ioJson = wc.SetIOBrokerValue("zwave2.0.Node_031.Binary_Switch.targetValue", true);
 
 
             }
