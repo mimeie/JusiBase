@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30002.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JusiBase", "JusiBase\JusiBase.csproj", "{E1693A17-6FB6-47CF-9D55-3CA86EB58939}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JusiBaseTest", "JusiBaseTest\JusiBaseTest.csproj", "{7F0B197A-57E3-4534-920F-0DD331133A4A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E1693A17-6FB6-47CF-9D55-3CA86EB58939}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1693A17-6FB6-47CF-9D55-3CA86EB58939}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1693A17-6FB6-47CF-9D55-3CA86EB58939}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1693A17-6FB6-47CF-9D55-3CA86EB58939}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F0B197A-57E3-4534-920F-0DD331133A4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F0B197A-57E3-4534-920F-0DD331133A4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F0B197A-57E3-4534-920F-0DD331133A4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F0B197A-57E3-4534-920F-0DD331133A4A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {422A333B-5053-497B-B2E5-77250947B849}
+	EndGlobalSection
+EndGlobal
