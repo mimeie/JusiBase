@@ -9,8 +9,8 @@ namespace JusiBase
 {
     public class IOBrokerClusterConnector
     {
-        private static string IOBrokerGetApi = "http://iobrokerdatacollector.prod-system.192.168.2.114.xip.io/api/iobroker/";
-        private static string IOBrokerSetApi = "http://iobrokerdatawriter.prod-system.192.168.2.114.xip.io/api/IoBroker/";
+        private static string IOBrokerGetApi = "http://iobrokerdatacollector.prod.j1/api/iobroker/";
+        private static string IOBrokerSetApi = "http://iobrokerdatawriter.prod.j1/api/IoBroker/";
 
         public IOBrokerJSONGet GetIOBrokerValue(string objectId)
         {
