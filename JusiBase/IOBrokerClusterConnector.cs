@@ -26,6 +26,7 @@ namespace JusiBase
 
                     var json = wc.DownloadString(downString);
                     ioJson = JsonConvert.DeserializeObject<IOBrokerJSONGet>(json);
+                    Console.WriteLine("result value {0}", ioJson.val);
                     return ioJson;
                 }
 
