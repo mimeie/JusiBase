@@ -33,7 +33,7 @@ namespace JusiBase
 
             catch (Exception ex)
             {
-                Console.WriteLine("Fehler beim lesen von IOBroker", ex);
+                Console.WriteLine("Fehler beim lesen von IOBroker MicroService", ex);
                 throw;
             }
         }
@@ -65,7 +65,7 @@ namespace JusiBase
 
             catch (Exception ex)
             {
-                Console.WriteLine("Fehler beim lesen von IOBroker", ex);
+                Console.WriteLine("Fehler beim schreiben von IOBroker Microservice", ex);
                 throw;
             }
         }

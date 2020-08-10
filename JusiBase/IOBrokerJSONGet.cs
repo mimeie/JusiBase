@@ -17,11 +17,32 @@ namespace JusiBase
 
         public DateTime LastChange
         {
-            get { return IOBrokerConverter.JavaTimeStampToDateTime(lc); }
+            get {
+                try
+                {
+                    return IOBrokerConverter.JavaTimeStampToDateTime(lc);
+                }
+                catch (Exception ex)
+                {
+                    return DateTime.MinValue;
+                    //throw;
+                }
+                 
+            }
         }
         public DateTime TimeStamp
         {
-            get { return IOBrokerConverter.JavaTimeStampToDateTime(ts); }
+            get {
+                try
+                {
+                    return IOBrokerConverter.JavaTimeStampToDateTime(ts);
+                }
+                catch (Exception ex)
+                {
+                    return DateTime.MinValue;
+                    //throw;
+                }
+                 }
         }
 
         public string valString
