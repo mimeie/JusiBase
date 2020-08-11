@@ -9,19 +9,42 @@ namespace JusiBase
 {
     public class IOBrokerClusterConnector
     {
-        private static string IOBrokerGetApi = "http://iobrokerdatacollector.prod.j1/api/iobroker/";
-        private static string IOBrokerSetApi = "http://iobrokerdatawriter.prod.j1/api/IoBroker/";
+
+        private static string IOBrokerRequest = "http://";
+        private static string IOBrokerGetHost = "iobrokerdatacollector.prod.j1";
+        private static string IOBrokerSetHost = "iobrokerdatawriter.prod.j1";
+
+        private static string IOBrokerParameter = "api/iobroker/";
+
+
+        private string IOBrokerGetApi()
+        {
+            string getApi = IOBrokerRequest + IOBrokerGetHost + "/" + IOBrokerParameter;
+            Console.WriteLine("getAPI: {0}", getApi);
+            return getApi;
+        }
+        private string IOBrokerSetApi()
+        {
+            string setApi = IOBrokerRequest + IOBrokerSetHost + "/" + IOBrokerParameter;
+            Console.WriteLine("setAPI: {0}", setApi);
+            return setApi;
+        }      
 
         public IOBrokerJSONGet GetIOBrokerValue(string objectId)
         {
             try
             {
+                if (DNSHelper.GetIP(IOBrokerGetHost) == null)
+                {
+                    return null;
+                }
+
                 //zwave2.0.Node_003.Multilevel_Sensor.humidity
                 using (WebClient wc = new WebClient())
                 {
                     IOBrokerJSONGet ioJson = new IOBrokerJSONGet();
 
-                    string downString = IOBrokerGetApi + objectId;
+                    string downString = IOBrokerGetApi() + objectId;
                     Console.WriteLine("Download String '{0}'", downString);
 
                     var json = wc.DownloadString(downString);
@@ -43,6 +66,11 @@ namespace JusiBase
         {
             try
             {
+                if (DNSHelper.GetIP(IOBrokerSetHost) == null)
+                {
+                    return null;
+                }
+
                 string zielwertString = "false";
                 if (zielwert == true)
                 {
@@ -54,7 +82,7 @@ namespace JusiBase
                 {
                     IOBrokerJSONSet ioJson = new IOBrokerJSONSet();
 
-                    string downString = IOBrokerSetApi + objectId + "?zielwert=" + zielwertString;
+                    string downString = IOBrokerSetApi() + objectId + "?zielwert=" + zielwertString;
                     Console.WriteLine("Download String '{0}'", downString);
 
                     var json = wc.DownloadString(downString);

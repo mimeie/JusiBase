@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 namespace JusiJSONHelperTest
 {
     [TestClass]
-    public class UnitTest1
+    public class APITests
     {
         public static string IOBrokerApi = "http://jportal1:8087/get/";
 
@@ -52,23 +52,14 @@ namespace JusiJSONHelperTest
         }
 
         [TestMethod]
-        public void TestIntValue()
+        public void TestGetIOBrokerValue()
         {
             try
             {
-                //zwave2.0.Node_003.Multilevel_Sensor.humidity
-                using (WebClient wc = new WebClient())
-                {
-                    IOBrokerJSONGet ioJson = new IOBrokerJSONGet();
+                IOBrokerJSONGet ioJson = new IOBrokerJSONGet();
+                IOBrokerWebConnector wc = new IOBrokerWebConnector();
+                ioJson = wc.GetIOBrokerValue("zwave2.0.Node_003.Multilevel_Sensor.humidity");
 
-                    string downString = IOBrokerApi + "zwave2.0.Node_003.Multilevel_Sensor.humidity";
-                    Console.WriteLine("Download String '{0}'", downString);
-
-
-                    var json = wc.DownloadString(downString);
-                    ioJson = JsonConvert.DeserializeObject<IOBrokerJSONGet>(json);
-
-                }
 
             }
 

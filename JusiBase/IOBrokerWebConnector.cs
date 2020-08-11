@@ -9,19 +9,47 @@ namespace JusiBase
 {
     public class IOBrokerWebConnector
     {
-        private static string IOBrokerGetApi = "http://jportal1:8087/get/";
-        private static string IOBrokerSetApi = "http://jportal1:8087/set/";
+        private static string IOBrokerRequest = "http://";
+        private static string IOBrokerHost = "jportal1";
+        private static string IOBrokerPort = "8087";
 
-        public IOBrokerJSONGet GetIOBrokerValue(string objectId)
+        private static string IOBrokerGetParameter = "get/";
+        private static string IOBrokerSetParameter = "set/";
+
+        private string IOBrokerGetApi()
+        {
+            string getApi = IOBrokerAddress() +  IOBrokerGetParameter;
+            Console.WriteLine("getAPI: {0}", getApi);
+            return getApi;
+        }
+        private string IOBrokerSetApi()
+        {
+            string setApi = IOBrokerAddress() + IOBrokerSetParameter;
+            Console.WriteLine("setAPI: {0}", setApi);
+            return setApi;
+        }
+        private string IOBrokerAddress()
+        {
+            string address = IOBrokerRequest + IOBrokerHost + ":" + IOBrokerPort + "/";
+            Console.WriteLine("IOBroker Address: {0}", address);
+            return address;
+        }
+
+            public IOBrokerJSONGet GetIOBrokerValue(string objectId)
         {
             try
             {
+                if (DNSHelper.GetIP(IOBrokerHost) == null)
+                {
+                    return null;
+                }
+
                 //zwave2.0.Node_003.Multilevel_Sensor.humidity
                 using (WebClient wc = new WebClient())
                 {
                     IOBrokerJSONGet ioJson = new IOBrokerJSONGet();
 
-                    string downString = IOBrokerGetApi + objectId;
+                    string downString = IOBrokerGetApi() + objectId;
                     Console.WriteLine("Download String '{0}'", downString);
 
                     var json = wc.DownloadString(downString);
@@ -42,6 +70,11 @@ namespace JusiBase
         {
             try
             {
+                if (DNSHelper.GetIP(IOBrokerHost) == null)
+                {
+                    return null;
+                }
+
                 string zielwertString ="false";
                 if (zielwert == true)
                 {
@@ -53,7 +86,7 @@ namespace JusiBase
                 {
                     IOBrokerJSONSet ioJson = new IOBrokerJSONSet();
 
-                    string downString = IOBrokerSetApi + objectId + "?value=" + zielwertString;
+                    string downString = IOBrokerSetApi() + objectId + "?value=" + zielwertString;
                     Console.WriteLine("Download String '{0}'", downString);
 
                     var json = wc.DownloadString(downString);
