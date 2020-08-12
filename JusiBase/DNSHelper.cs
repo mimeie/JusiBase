@@ -91,7 +91,6 @@ namespace JusiBase
                     IPAddressCollection dnsServers = adapterProperties.DnsAddresses;
                     if (dnsServers.Count > 0)
                     {
-                        Console.WriteLine(adapter.Description);
                         foreach (IPAddress dns in dnsServers)
                         {
                             dnsServer = dns.ToString();
@@ -100,6 +99,9 @@ namespace JusiBase
                         
                     }
                 }
+
+                IPAddress ipGoogle = Dns.GetHostAddresses("google.ch").FirstOrDefault();
+                Console.WriteLine("ip resultat google {0}", ipGoogle.ToString());
 
 
                 IPAddress ip = Dns.GetHostAddresses(fqdn).FirstOrDefault();
@@ -111,14 +113,14 @@ namespace JusiBase
             catch (SocketException ex)
             {
                 //if (ex.)
-                Console.WriteLine("SocketException, Host nicht erreichbar", ex);
+                Console.WriteLine("SocketException, Host nicht erreichbar {0}", ex);
                 return null;
                 //throw;
             }
             catch (Exception ex)
             {
                 //if (ex.)
-                Console.WriteLine("Allgemeiner Fehler beim Testen der IP", ex);                
+                Console.WriteLine("Allgemeiner Fehler beim Testen der IP {0}", ex);                
                 throw;
             }
         }
