@@ -103,6 +103,8 @@ namespace JusiBase
                 IPAddress ipGoogle = Dns.GetHostAddresses("google.ch").FirstOrDefault();
                 Console.WriteLine("ip resultat google {0}", ipGoogle.ToString());
 
+                IPAddress ipjmaster = Dns.GetHostAddresses("jmaster1.mei.local").FirstOrDefault();
+                Console.WriteLine("ip resultat jmaster1 {0}", ipjmaster.ToString());
 
                 IPAddress ip = Dns.GetHostAddresses(fqdn).FirstOrDefault();
                 Console.WriteLine("ip resultat {0}", ip.ToString());
