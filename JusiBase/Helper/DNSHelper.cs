@@ -54,6 +54,7 @@ namespace JusiBase
         {
             try
             {
+                Console.WriteLine("*************************************Network Checks start*********************************************");
                 Console.WriteLine("prüfe ip für fqdn {0}, lokaler Host: {1}", fqdn, System.Environment.MachineName);
 
 
@@ -103,11 +104,13 @@ namespace JusiBase
                 IPAddress ipGoogle = Dns.GetHostAddresses("google.ch").FirstOrDefault();
                 Console.WriteLine("ip resultat google {0}", ipGoogle.ToString());
 
-                IPAddress ipjmaster = Dns.GetHostAddresses("jmaster1.mei.local").FirstOrDefault();
-                Console.WriteLine("ip resultat jmaster1 {0}", ipjmaster.ToString());
+                IPAddress ipjinfra = Dns.GetHostAddresses("jinfra3.mei.local").FirstOrDefault();
+                Console.WriteLine("ip resultat jinfra3 {0}", ipjinfra.ToString());
 
                 IPAddress ip = Dns.GetHostAddresses(fqdn).FirstOrDefault();
-                Console.WriteLine("ip resultat {0}", ip.ToString());
+                Console.WriteLine("ip resultat von {0}: {1}", fqdn, ip.ToString());
+                Console.WriteLine("*************************************Network Checks finished*********************************************");
+
                 return ip;
 
             }
