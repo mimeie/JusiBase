@@ -7,7 +7,8 @@ namespace JusiBase
     public class ResponseTrigger : ResponseBase
     {
         public int ReturnCode { get; set; }
+        public string ReturnState { get; set; }
 
-       
+
     }
 }
