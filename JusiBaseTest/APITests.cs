@@ -14,6 +14,37 @@ namespace JusiJSONHelperTest
         public static string IOBrokerApi = "http://jportal1:8087/get/";
 
         [TestMethod]
+        public void TestPushMessage()
+        {
+            try
+            {
+                using (WebClient wc = new WebClient())
+                {
+                    
+
+                    string messengerAdress = "http://messenger.prod.j1/api/messenger/test?";
+                    string subject = "hallo";
+                    string message = "hallo wie geht es";
+
+                    //http://messenger.prod.j1/api/messenger/test?subject=hallo&text=testmessage
+                    string downString = messengerAdress + "subject=" + subject + "&text=" + System.Web.HttpUtility.UrlEncode(message);
+                    Console.WriteLine("Download String '{0}'", downString);
+
+                    var json = wc.DownloadString(downString);
+                    
+                }
+
+
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine("Fehler beim schreiben einer pushmessage", ex);
+                //throw;
+            }
+        }
+
+        [TestMethod]
         public void TestGetValue()
         {
             try
