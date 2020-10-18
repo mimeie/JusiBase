@@ -62,6 +62,39 @@ namespace JusiBase
             }
         }
 
+        public IOBrokerJSONSet SetIOBrokerValue(string objectId, int zielwert)
+        {
+            try
+            {
+                if (DNSHelper.GetIP(IOBrokerSetHost) == null)
+                {
+                    return null;
+                }
+
+                string zielwertString = zielwert.ToString();
+                
+                //zwave2.0.Node_003.Multilevel_Sensor.humidity
+                using (WebClient wc = new WebClient())
+                {
+                    IOBrokerJSONSet ioJson = new IOBrokerJSONSet();
+
+                    string downString = IOBrokerSetApi() + objectId + "?zielwert=" + zielwertString;
+                    Console.WriteLine("Download String '{0}'", downString);
+
+                    var json = wc.DownloadString(downString);
+                    ioJson = JsonConvert.DeserializeObject<IOBrokerJSONSet>(json);
+                    return ioJson;
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine("Fehler beim schreiben von IOBroker", ex);
+                throw;
+            }
+        }
+
         public IOBrokerJSONSet SetIOBrokerValue(string objectId, bool zielwert)
         {
             try

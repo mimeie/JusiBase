@@ -5,7 +5,7 @@ using System.Text;
 namespace JusiBase
 
 {
-    public abstract class Objekt : IMultisensor
+    public abstract class Objekt 
     {
         public DateTime LastChange { get; set; }
         public string ObjektId { get; set; }

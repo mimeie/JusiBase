@@ -6,6 +6,8 @@ namespace JusiBase
 {
     public class Multisensor
     {
-        public List<IMultisensor> Sensors { get; set; }
-}
+        public SensorIntToBool Bewegung { get; set; }
+        public SensorFeuchtigkeit Feuchtigkeit { get; set; }
+        public SensorHelligkeit Helligkeit { get; set; }
+    }
 }
