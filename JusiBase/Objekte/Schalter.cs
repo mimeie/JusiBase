@@ -10,6 +10,7 @@ namespace JusiBase
         public bool ZielStatus {  set
             {
                 clusterConn.SetIOBrokerValue(ZielObjektId, value);
+                Update();
             }
         }
         public string ZielObjektId { get; set; }

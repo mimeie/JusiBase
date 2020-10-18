@@ -64,6 +64,27 @@ namespace JusiJSONHelperTest
         }
 
         [TestMethod]
+        public void TestSetValueInObject()
+        {
+            try
+            {
+                Schalter entf = new Schalter("zwave2.0.Node_031.Binary_Switch.currentValue", "zwave2.0.Node_031.Binary_Switch.targetValue");
+                entf.ZielStatus = false;
+
+
+
+
+
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine("Fehler beim schreiben von IOBroker", ex);
+                //throw;
+            }
+        }
+
+        [TestMethod]
         public void TestSetValue()
         {
             try

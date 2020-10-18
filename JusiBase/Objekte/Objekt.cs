@@ -5,7 +5,7 @@ using System.Text;
 namespace JusiBase
 
 {
-    public abstract class Objekt
+    public abstract class Objekt : IMultisensor
     {
         public DateTime LastChange { get; set; }
         public string ObjektId { get; set; }
@@ -17,7 +17,7 @@ namespace JusiBase
             clusterConn = new IOBrokerClusterConnector();
 
             ObjektId = objektId;
-            Update();
+            
         }
 
         public abstract void Update();
