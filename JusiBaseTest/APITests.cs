@@ -22,12 +22,12 @@ namespace JusiJSONHelperTest
                 {
                     
 
-                    string messengerAdress = "http://messenger.prod.j1/api/messenger/test?";
-                    string subject = "hallo";
+                    string messengerAdress = "http://messenger.prod.j1/api/messenger/push?";
+                    string subject = "hallo test subject";
                     string message = "hallo wie geht es";
 
                     //http://messenger.prod.j1/api/messenger/test?subject=hallo&text=testmessage
-                    string downString = messengerAdress + "subject=" + subject + "&text=" + System.Web.HttpUtility.UrlEncode(message);
+                    string downString = messengerAdress + "subject=" + System.Web.HttpUtility.UrlEncode(subject) + "&text=" + System.Web.HttpUtility.UrlEncode(message);
                     Console.WriteLine("Download String '{0}'", downString);
 
                     var json = wc.DownloadString(downString);
