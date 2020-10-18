@@ -11,5 +11,10 @@ namespace JusiBase
 
         public int ZielHelligkeit { get; set; }
         public int ZielTemperatur { get; set; }
+
+        public Lampe(string objektId, string zielObjektId) : base(objektId, zielObjektId)
+        {
+            
+        }
     }
 }

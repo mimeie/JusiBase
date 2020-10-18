@@ -7,5 +7,10 @@ namespace JusiBase
     public class SensorBool : Objekt
     {
         public bool Status { get; set; }
+
+        public SensorBool(string objektId) : base(objektId)
+        {
+           
+        }
     }
 }

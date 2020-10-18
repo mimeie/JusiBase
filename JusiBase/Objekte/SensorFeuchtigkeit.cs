@@ -12,7 +12,7 @@ namespace JusiBase
         public int LimitHighDelayHours { get; set; }
         public DateTime LimitHighTime { get; set; }
 
-        public SensorFeuchtigkeit(int _limitHigh, int _limitHighDelayHours, int _abschaltlevel)
+        public SensorFeuchtigkeit(string objektId, int _limitHigh, int _limitHighDelayHours, int _abschaltlevel) : base(objektId)
         {
             LimitHigh = _limitHigh;
             LimitHighDelayHours = _limitHighDelayHours;

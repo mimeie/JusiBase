@@ -8,5 +8,12 @@ namespace JusiBase
     {
         public bool Status { get; set; }
         public bool ZielStatus { get; set; }
+        public string ZielObjektId { get; set; }
+
+        public Schalter(string objektId, string zielObjektId) : base(objektId)
+        {
+            ZielObjektId = zielObjektId;
+        }
+
     }
 }
