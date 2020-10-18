@@ -12,5 +12,16 @@ namespace JusiBase
         {
            
         }
+
+        public override void Update()
+        {
+            IOBrokerJSONGet jsonResult = clusterConn.GetIOBrokerValue(ObjektId);
+            if (jsonResult == null && jsonResult.valBool != null)
+            {
+                Console.WriteLine("keine Daten erhalten");
+                return;
+            }
+            Status = jsonResult.valBool.Value;
+        }
     }
 }

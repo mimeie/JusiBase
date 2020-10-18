@@ -26,5 +26,16 @@ namespace JusiBase
             }
         }
 
+        public override void Update()
+        {
+            IOBrokerJSONGet jsonResult = clusterConn.GetIOBrokerValue(ObjektId);
+            if (jsonResult == null && jsonResult.valInt != null)
+            {
+                Console.WriteLine("keine Daten erhalten");
+                return;
+            }
+            Feuchtigkeit = jsonResult.valInt.Value;
+        }
+
     }
 }
