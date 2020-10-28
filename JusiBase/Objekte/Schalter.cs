@@ -19,6 +19,10 @@ namespace JusiBase
         {
             ZielObjektId = zielObjektId;
         }
+        public Schalter(string objektId) : base(objektId)
+        {
+            ZielObjektId = objektId;
+        }
 
         public override void Update()
         {
