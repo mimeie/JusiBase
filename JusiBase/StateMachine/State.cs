@@ -7,7 +7,9 @@ namespace JusiBase
     public enum State
     {
         Aus,
-        Entfeuchten,
-        WaitForEntfeuchten
+        Ein,
+        WaitForEin,
+        Deaktiviert
+        
     }
 }
