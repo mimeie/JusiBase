@@ -44,7 +44,7 @@ namespace JusiBase
                 {
                     IOBrokerJSONGet ioJson = new IOBrokerJSONGet();
 
-                    string downString = IOBrokerGetApi() + objectId;
+                    string downString = IOBrokerGetApi() + System.Web.HttpUtility.UrlEncode(objectId);
                     Console.WriteLine("Download String '{0}'", downString);
 
                     var json = wc.DownloadString(downString);
@@ -78,7 +78,7 @@ namespace JusiBase
                 {
                     IOBrokerJSONSet ioJson = new IOBrokerJSONSet();
 
-                    string downString = IOBrokerSetApi() + objectId + "?zielwert=" + zielwertString;
+                    string downString = IOBrokerSetApi() + System.Web.HttpUtility.UrlEncode(objectId) + "?zielwert=" + System.Web.HttpUtility.UrlEncode(zielwertString);
                     Console.WriteLine("Download String '{0}'", downString);
 
                     var json = wc.DownloadString(downString);
@@ -115,7 +115,7 @@ namespace JusiBase
                 {
                     IOBrokerJSONSet ioJson = new IOBrokerJSONSet();
 
-                    string downString = IOBrokerSetApi() + objectId + "?zielwert=" + zielwertString;
+                    string downString = IOBrokerSetApi() + System.Web.HttpUtility.UrlEncode(objectId) + "?zielwert=" + System.Web.HttpUtility.UrlEncode(zielwertString);
                     Console.WriteLine("Download String '{0}'", downString);
 
                     var json = wc.DownloadString(downString);

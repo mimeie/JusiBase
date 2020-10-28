@@ -104,6 +104,25 @@ namespace JusiJSONHelperTest
         }
 
         [TestMethod]
+        public void TestSetIOBrokerValue()
+        {
+            try
+            {
+                IOBrokerJSONSet ioJson = new IOBrokerJSONSet();
+                IOBrokerWebConnector wc = new IOBrokerWebConnector();
+                ioJson = wc.SetIOBrokerValue("shelly.0.SHSW-25#D8BFC01A2B2A#1.Relay0.Switch",false);
+
+
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine("Fehler beim setzen von IOBroker", ex);
+                //throw;
+            }
+        }
+
+        [TestMethod]
         public void TestGetIOBrokerValue()
         {
             try
