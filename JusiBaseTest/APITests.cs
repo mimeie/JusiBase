@@ -104,6 +104,42 @@ namespace JusiJSONHelperTest
         }
 
         [TestMethod]
+        public void TestSetSchalterValue()
+        {
+            try
+            {
+                Schalter LichtAnkleide = new Schalter("shelly.0.SHSW-25#D8BFC01A2B2A#1.Relay0.Switch");
+                LichtAnkleide.ZielStatus = false;
+
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine("Fehler beim setzen von IOBroker", ex);
+                //throw;
+            }
+        }
+
+        [TestMethod]
+        public void TestSetClusterValue()
+        {
+            try
+            {
+                IOBrokerJSONSet ioJson = new IOBrokerJSONSet();
+                IOBrokerClusterConnector wc = new IOBrokerClusterConnector();
+                ioJson = wc.SetIOBrokerValue("shelly.0.SHSW-25#D8BFC01A2B2A#1.Relay0.Switch", false);
+
+
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine("Fehler beim setzen von IOBroker", ex);
+                //throw;
+            }
+        }
+
+        [TestMethod]
         public void TestSetIOBrokerValue()
         {
             try

@@ -8,9 +8,16 @@ namespace JusiBase
     {
         public int Helligkeit { get; set; }
 
+        public int Abschaltlevel { get; set; }
+
+        public SensorHelligkeit(string objektId, int _abschaltlevel) : base(objektId)
+        {
+            Abschaltlevel = _abschaltlevel;
+        }
+
         public SensorHelligkeit(string objektId) : base(objektId)
         {
-
+           
         }
 
         public override void Update()
