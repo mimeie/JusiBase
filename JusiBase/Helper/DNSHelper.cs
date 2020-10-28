@@ -54,64 +54,66 @@ namespace JusiBase
         {
             try
             {
-                Console.WriteLine("*************************************Network Checks start*********************************************");
-                Console.WriteLine("prüfe ip für fqdn {0}, lokaler Host: {1}", fqdn, System.Environment.MachineName);
+                //Console.WriteLine("*************************************Network Checks start*********************************************");
+                //Console.WriteLine("prüfe ip für fqdn {0}, lokaler Host: {1}", fqdn, System.Environment.MachineName);
 
 
-                if (!System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable())
-                {
-                    Console.WriteLine("Network not available");
-                    return null;
-                }
+                //if (!System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable())
+                //{
+                //    Console.WriteLine("Network not available");
+                //    return null;
+                //}
 
                
-                string localIP;
-                var host = Dns.GetHostEntry(Dns.GetHostName());
-                foreach (var LocalIp in host.AddressList)
-                {
-                    if (LocalIp.AddressFamily == AddressFamily.InterNetwork)
-                    {
-                        localIP = LocalIp.ToString();
-                        Console.WriteLine("lokale IP: {0}", localIP);                     
-                    }
-                }
+                //string localIP;
+                //var host = Dns.GetHostEntry(Dns.GetHostName());
+                //foreach (var LocalIp in host.AddressList)
+                //{
+                //    if (LocalIp.AddressFamily == AddressFamily.InterNetwork)
+                //    {
+                //        localIP = LocalIp.ToString();
+                //        Console.WriteLine("lokale IP: {0}", localIP);                     
+                //    }
+                //}
 
-                //ping prüfen ob netzwerk läuft
-                if (PingHost("8.8.8.8") == false && PingHost("192.168.2.1") == false)
-                {
-                    Console.WriteLine("abbrechen weil ping nicht erfolgreich");
-                    return null;
-                }
+                ////ping prüfen ob netzwerk läuft
+                //if (PingHost("8.8.8.8") == false && PingHost("192.168.2.1") == false)
+                //{
+                //    Console.WriteLine("abbrechen weil ping nicht erfolgreich");
+                //    return null;
+                //}
 
-                //dns config loggen
-                string dnsServer;
-                NetworkInterface[] adapters = NetworkInterface.GetAllNetworkInterfaces();
-                foreach (NetworkInterface adapter in adapters)
-                {
-                    IPInterfaceProperties adapterProperties = adapter.GetIPProperties();
-                    IPAddressCollection dnsServers = adapterProperties.DnsAddresses;
-                    if (dnsServers.Count > 0)
-                    {
-                        foreach (IPAddress dns in dnsServers)
-                        {
-                            dnsServer = dns.ToString();
-                            Console.WriteLine("DNS Servers von adapter: {0} - {1} : {2}", adapter.Name, adapter.Description, dnsServer);
-                        }
+                ////dns config loggen
+                //string dnsServer;
+                //NetworkInterface[] adapters = NetworkInterface.GetAllNetworkInterfaces();
+                //foreach (NetworkInterface adapter in adapters)
+                //{
+                //    IPInterfaceProperties adapterProperties = adapter.GetIPProperties();
+                //    IPAddressCollection dnsServers = adapterProperties.DnsAddresses;
+                //    if (dnsServers.Count > 0)
+                //    {
+                //        foreach (IPAddress dns in dnsServers)
+                //        {
+                //            dnsServer = dns.ToString();
+                //            Console.WriteLine("DNS Servers von adapter: {0} - {1} : {2}", adapter.Name, adapter.Description, dnsServer);
+                //        }
                         
-                    }
-                }
+                //    }
+                //}
 
-                IPAddress ipGoogle = Dns.GetHostAddresses("google.ch").FirstOrDefault();
-                Console.WriteLine("ip resultat google {0}", ipGoogle.ToString());
+                //IPAddress ipGoogle = Dns.GetHostAddresses("google.ch").FirstOrDefault();
+                //Console.WriteLine("ip resultat google {0}", ipGoogle.ToString());
 
-                IPAddress ipjinfra = Dns.GetHostAddresses("jinfra3.mei.local").FirstOrDefault();
-                Console.WriteLine("ip resultat jinfra3 {0}", ipjinfra.ToString());
+                //IPAddress ipjinfra = Dns.GetHostAddresses("jinfra3.mei.local").FirstOrDefault();
+                //Console.WriteLine("ip resultat jinfra3 {0}", ipjinfra.ToString());
 
                 IPAddress ip = Dns.GetHostAddresses(fqdn).FirstOrDefault();
                 Console.WriteLine("ip resultat von {0}: {1}", fqdn, ip.ToString());
                 Console.WriteLine("*************************************Network Checks finished*********************************************");
 
                 return ip;
+
+               
 
             }
 
