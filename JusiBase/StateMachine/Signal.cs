@@ -10,6 +10,6 @@ namespace JusiBase
         GotoAction,
         GotoWaitForAction,
         GotoReadyForAction,
-        GotoDeactivated
+        GotoDeaktiviert
     }
 }

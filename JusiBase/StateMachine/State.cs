@@ -7,8 +7,9 @@ namespace JusiBase
     public enum State
     {
         Aus,
-        Ein,
-        WaitForEin,
+        Action,
+        WaitForAction,
+        ReadyForAction,
         Deaktiviert
         
     }
