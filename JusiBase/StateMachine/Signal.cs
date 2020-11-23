@@ -7,7 +7,9 @@ namespace JusiBase
     public enum Signal
     {
         GotoAus,
-        GotoEntfeuchten,
-        GotoWaitForEntfeuchten
+        GotoAction,
+        GotoWaitForAction,
+        GotoReadyForAction,
+        GotoDeactivated
     }
 }

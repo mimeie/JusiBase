@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using JusiBase;
 using System;
+using System.Diagnostics;
 
 using System.Net;
 
@@ -40,6 +41,53 @@ namespace JusiJSONHelperTest
             catch (Exception ex)
             {
                 Console.WriteLine("Fehler beim schreiben einer pushmessage", ex);
+                //throw;
+            }
+        }
+
+        private IOBrokerJSONGet getResult(string iobrokertag)
+        {
+            
+
+            IOBrokerJSONGet ioJson = new IOBrokerJSONGet();
+            
+            IOBrokerClusterConnector wc = new IOBrokerClusterConnector();
+           
+            ioJson = wc.GetIOBrokerValue("zwave2.0.Node_003.Multilevel_Sensor.humidity");
+
+
+            
+            return ioJson;
+        }
+
+        [TestMethod]
+        public void TestGetValuePerformance()
+        {
+            try
+            {
+                IOBrokerJSONGet ioJson;
+
+                Stopwatch sw = new Stopwatch();
+                sw.Start();
+
+                ioJson = getResult("zwave2.0.Node_003.Multilevel_Sensor.humidity");
+                ioJson = getResult("zwave2.0.Node_003.Multilevel_Sensor.humidity");
+                ioJson = getResult("zwave2.0.Node_003.Multilevel_Sensor.humidity");
+                ioJson = getResult("zwave2.0.Node_003.Multilevel_Sensor.humidity");
+                ioJson = getResult("zwave2.0.Node_003.Multilevel_Sensor.humidity");
+                ioJson = getResult("zwave2.0.Node_003.Multilevel_Sensor.humidity");
+                ioJson = getResult("zwave2.0.Node_003.Multilevel_Sensor.humidity");
+                ioJson = getResult("zwave2.0.Node_003.Multilevel_Sensor.humidity");
+                ioJson = getResult("zwave2.0.Node_003.Multilevel_Sensor.humidity"); 
+                ioJson = getResult("zwave2.0.Node_003.Multilevel_Sensor.humidity");
+
+                string temp3 = sw.ElapsedMilliseconds.ToString();
+
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine("Fehler beim lesen von IOBroker", ex);
                 //throw;
             }
         }

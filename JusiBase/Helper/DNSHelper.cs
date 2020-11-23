@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Diagnostics;
 
 using System.Net;
 using System.Linq;
@@ -54,6 +55,9 @@ namespace JusiBase
         {
             try
             {
+
+                Stopwatch sw = new Stopwatch();
+                sw.Start();
                 //Console.WriteLine("*************************************Network Checks start*********************************************");
                 //Console.WriteLine("prüfe ip für fqdn {0}, lokaler Host: {1}", fqdn, System.Environment.MachineName);
 
@@ -64,7 +68,7 @@ namespace JusiBase
                 //    return null;
                 //}
 
-               
+
                 //string localIP;
                 //var host = Dns.GetHostEntry(Dns.GetHostName());
                 //foreach (var LocalIp in host.AddressList)
@@ -97,7 +101,7 @@ namespace JusiBase
                 //            dnsServer = dns.ToString();
                 //            Console.WriteLine("DNS Servers von adapter: {0} - {1} : {2}", adapter.Name, adapter.Description, dnsServer);
                 //        }
-                        
+
                 //    }
                 //}
 
@@ -107,10 +111,12 @@ namespace JusiBase
                 //IPAddress ipjinfra = Dns.GetHostAddresses("jinfra3.mei.local").FirstOrDefault();
                 //Console.WriteLine("ip resultat jinfra3 {0}", ipjinfra.ToString());
 
+
                 IPAddress ip = Dns.GetHostAddresses(fqdn).FirstOrDefault();
                 Console.WriteLine("ip resultat von {0}: {1}", fqdn, ip.ToString());
-                Console.WriteLine("*************************************Network Checks finished*********************************************");
+                Console.WriteLine("*************************************Network Checks finished, Dauer {0}************************************", sw.ElapsedMilliseconds) ;
 
+                sw.Stop();
                 return ip;
 
                
