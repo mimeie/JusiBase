@@ -7,7 +7,7 @@ namespace JusiBase
 {
     public abstract class Objekt 
     {
-        
+        public event EventHandler<Objekt> DataChange;
 
         public DateTime LastChange { get; set; }
         public string ObjektId { get; set; }
@@ -25,14 +25,11 @@ namespace JusiBase
         public abstract void Update();
 
 
-        //data change könnte man mal angehen
-
-        //public event EventHandler<string> DataChange;
-        //public void RaiseDataChange(string source)
-        ////protected virtual void OnProcessCompleted(SensorBool sensorBool)
-        //{
-        //    DataChange?.Invoke(this, source);
-        //}
+        public void RaiseDataChange()       
+        {
+            DataChange?.Invoke(this, null);
+            //DataChange?.Invoke(this, source);
+        }
 
 
 

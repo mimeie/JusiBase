@@ -7,7 +7,7 @@ using System.Net;
 
 using Newtonsoft.Json;
 
-namespace JusiJSONHelperTest
+namespace JusiBaseTest
 {
     [TestClass]
     public class APITests
