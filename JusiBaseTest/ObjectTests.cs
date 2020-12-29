@@ -19,7 +19,7 @@ namespace JusiBaseTest
         {
             try
             {
-                DebugBool = new SensorBool("0_userdata.0.debugBool");
+                DebugBool = new SensorBool("zigbee.0.00158d00063a6d54.occupancy");
 
                 DebugBool.DataChange += DoDataChange;
 

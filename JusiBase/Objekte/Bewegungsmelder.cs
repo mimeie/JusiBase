@@ -4,11 +4,10 @@ using System.Text;
 
 namespace JusiBase
 {
-    public class Multisensor
+    public class Bewegungsmelder
     {
-        public SensorIntToBool Bewegung { get; set; }
-
-        public SensorFeuchtigkeit Feuchtigkeit { get; set; }
+        public SensorBool Bewegung { get; set; }
+       
         public SensorHelligkeit Helligkeit { get; set; }
     }
 }
