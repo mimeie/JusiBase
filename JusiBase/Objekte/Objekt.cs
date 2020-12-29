@@ -17,7 +17,6 @@ namespace JusiBase
         public Objekt(string objektId)
         {
             clusterConn = new IOBrokerClusterConnector();
-
             ObjektId = objektId;
             
         }
@@ -27,8 +26,8 @@ namespace JusiBase
 
         public void RaiseDataChange()       
         {
-            DataChange?.Invoke(this, null);
-            //DataChange?.Invoke(this, source);
+            //DataChange?.Invoke(this, null);
+            DataChange?.Invoke(this, this);
         }
 
 
