@@ -24,7 +24,7 @@ namespace JusiBaseTest
                 DebugBool.DataChange += DoDataChange;
 
 
-                DebugBool.RaiseDataChange();
+                DebugBool.RaiseDataChange(true);
 
             }
             catch (Exception ex)
@@ -44,7 +44,7 @@ namespace JusiBaseTest
                 DebugBool.DataChange += DoDataChange;
 
 
-                DebugBool.RaiseDataChange();
+                DebugBool.RaiseDataChange(true);
 
             }
             catch (Exception ex)

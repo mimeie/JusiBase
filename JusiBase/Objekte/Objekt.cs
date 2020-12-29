@@ -24,9 +24,13 @@ namespace JusiBase
         public abstract void Update();
 
 
-        public void RaiseDataChange()       
+        public void RaiseDataChange(bool WithUpdate)       
         {
             //DataChange?.Invoke(this, null);
+            if (WithUpdate == true)
+            {
+                Update();
+            }
             DataChange?.Invoke(this, this);
         }
 
