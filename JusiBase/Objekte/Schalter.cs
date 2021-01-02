@@ -6,6 +6,8 @@ namespace JusiBase
 {
     public class Schalter : Objekt
     {
+        public int MinLaufzeitSeconds { get; set; }
+
         public bool Status { get; set; }
         public bool ZielStatus {  set
             {
