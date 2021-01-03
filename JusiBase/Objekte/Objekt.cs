@@ -24,7 +24,7 @@ namespace JusiBase
                     }
                     else
                     {
-                        return (endDate - dtNow).TotalMinutes;
+                        return (endDate - dtNow).TotalMinutes + 0.02; //etwas verlängern damit es nicht knapp reicht
                     }
                 }
                 else
