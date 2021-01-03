@@ -29,6 +29,7 @@ namespace JusiBase
                 return;
             }
             Helligkeit = jsonResult.valInt.Value;
+            LastChange = jsonResult.LastChange;
         }
     }
 }

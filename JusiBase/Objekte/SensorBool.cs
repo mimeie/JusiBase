@@ -22,6 +22,7 @@ namespace JusiBase
                 return;
             }
             Status = jsonResult.valBool.Value;
+            LastChange = jsonResult.LastChange;
         }
     }
 }

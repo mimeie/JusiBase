@@ -27,6 +27,7 @@ namespace JusiBase
             {
                 Status = false;
             }
+            LastChange = jsonResult.LastChange;
         }
     }
 }

@@ -41,9 +41,9 @@ namespace JusiBaseTest
         {
             try
             {
-                SchalterBool = new Schalter("shelly.0.SHSW-25#D8BFC01A2B2A#1.Relay0.Switch");
+                SchalterBool = new Schalter("zigbee.0.00158d00063a6d54.occupancy");
                 SchalterBool.Update();
-                SchalterBool.MinLaufzeitMinutes = 1;
+                SchalterBool.MinLaufzeitMinutes = 10;
 
                 double restlaufzeit = SchalterBool.RestlaufzeitMinutes;
 

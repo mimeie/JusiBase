@@ -35,6 +35,7 @@ namespace JusiBase
                 return;
             }
             Feuchtigkeit = jsonResult.valInt.Value;
+            LastChange = jsonResult.LastChange;
         }
 
     }
