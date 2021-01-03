@@ -9,6 +9,48 @@ namespace JusiBase
     {
         public event EventHandler<Objekt> DataChange;
 
+
+        public double MinLaufzeitMinutes { get; set; }
+
+        public double RestlaufzeitMinutes
+        { //prüfen ob das wirklich der richtige ort ist, sollte allenfalls der sensor sein(bezeichnung dann richtig?)
+            get
+            {
+                if (LastChange != null && MinLaufzeitMinutes != 0)
+                {
+                    DateTime endDate = LastChange.AddMinutes(MinLaufzeitMinutes);
+                    DateTime dtNow = DateTime.Now;
+                    if (endDate <= dtNow)
+                    {
+                        return 0;
+                    }
+                    else
+                    {
+                        return (endDate - dtNow).TotalMinutes;
+                    }
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+        }
+
+        public bool HasRestlaufzeit
+        {
+            get
+            {
+                if (RestlaufzeitMinutes > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
         public DateTime LastChange { get; set; }
         public string ObjektId { get; set; }
 
