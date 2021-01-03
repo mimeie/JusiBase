@@ -12,13 +12,11 @@ namespace JusiBase
 
         public double MinLaufzeitMinutes { get; set; }
 
-        public double RestlaufzeitMinutes
-        { //prüfen ob das wirklich der richtige ort ist, sollte allenfalls der sensor sein(bezeichnung dann richtig?)
-            get
-            {
-                if (LastChange != null && MinLaufzeitMinutes != 0)
+        public double RestlaufzeitMinutes(DateTime reference)
+        {             
+                if (reference != null && MinLaufzeitMinutes != 0)
                 {
-                    DateTime endDate = LastChange.AddMinutes(MinLaufzeitMinutes);
+                    DateTime endDate = reference.AddMinutes(MinLaufzeitMinutes);
                     DateTime dtNow = DateTime.Now;
                     if (endDate <= dtNow)
                     {
@@ -32,15 +30,12 @@ namespace JusiBase
                 else
                 {
                     return 0;
-                }
-            }
+                }            
         }
 
-        public bool HasRestlaufzeit
-        {
-            get
-            {
-                if (RestlaufzeitMinutes > 0)
+        public bool HasRestlaufzeit(DateTime reference)
+        {            
+                if (RestlaufzeitMinutes(reference) > 0)
                 {
                     return true;
                 }
@@ -48,7 +43,7 @@ namespace JusiBase
                 {
                     return false;
                 }
-            }
+            
         }
 
         public DateTime LastChange { get; set; }

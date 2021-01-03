@@ -45,7 +45,7 @@ namespace JusiBaseTest
                 SchalterBool.Update();
                 SchalterBool.MinLaufzeitMinutes = 10;
 
-                double restlaufzeit = SchalterBool.RestlaufzeitMinutes;
+                double restlaufzeit = SchalterBool.RestlaufzeitMinutes(SchalterBool.LastChange);
 
 
 

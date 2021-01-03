@@ -8,6 +8,9 @@ namespace JusiBase
     {
         public bool Status { get; set; }
 
+        public DateTime LastChangeTrue { get; set; }
+        public DateTime LastChangeFalse { get; set; }
+
         public SensorBool(string objektId) : base(objektId)
         {
            
@@ -21,8 +24,18 @@ namespace JusiBase
                 Console.WriteLine("keine Daten erhalten");
                 return;
             }
-            Status = jsonResult.valBool.Value;
             LastChange = jsonResult.LastChange;
+
+            Status = jsonResult.valBool.Value;
+            if (Status == true)
+            {
+                LastChangeTrue = LastChange;
+            }
+            else
+            {
+                LastChangeFalse = LastChange;
+            }
+            
         }
     }
 }
