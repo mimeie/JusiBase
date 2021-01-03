@@ -13,6 +13,7 @@ namespace JusiBaseTest
     public class ObjectTests
     {
         public SensorBool DebugBool;
+        public Schalter SchalterBool;
 
         [TestMethod]
         public void TestObjektEvent()
@@ -34,17 +35,19 @@ namespace JusiBaseTest
             }
         }
 
+
         [TestMethod]
         public void TestSchalterEvent()
         {
             try
             {
-                DebugBool = new SensorBool("0_userdata.0.IsAnybodyHome");
+                SchalterBool = new Schalter("shelly.0.SHSW-25#D8BFC01A2B2A#1.Relay0.Switch");
+                SchalterBool.Update();
+                SchalterBool.MinLaufzeitMinutes = 1;
 
-                DebugBool.DataChange += DoDataChange;
+                double restlaufzeit = SchalterBool.RestlaufzeitMinutes;
 
 
-                DebugBool.RaiseDataChange(true);
 
             }
             catch (Exception ex)
