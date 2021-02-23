@@ -9,6 +9,7 @@ namespace JusiBase
     {
         public event EventHandler<Objekt> DataChange;
 
+        
 
         public double MinLaufzeitMinutes { get; set; }
 

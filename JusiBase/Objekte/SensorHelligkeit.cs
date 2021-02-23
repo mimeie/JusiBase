@@ -6,6 +6,11 @@ namespace JusiBase
 {
     public class SensorHelligkeit : Objekt
     {
+        public void DebugSetHelligkeit(int zielwert)
+        {
+            clusterConn.SetIOBrokerValue(ObjektId, zielwert);
+        }
+
         public int Helligkeit { get; set; }
 
         public int Abschaltlevel { get; set; }

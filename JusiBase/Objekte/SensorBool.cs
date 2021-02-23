@@ -6,6 +6,11 @@ namespace JusiBase
 {
     public class SensorBool : Objekt
     {
+        public void DebugSetStatus(bool zielwert)
+        {
+            clusterConn.SetIOBrokerValue(ObjektId, zielwert);
+        }
+
         public bool Status { get; set; }
 
         public DateTime LastChangeTrue { get; set; }
