@@ -113,8 +113,8 @@ namespace JusiBase
 
 
                 IPAddress ip = Dns.GetHostAddresses(fqdn).FirstOrDefault();
-                Console.WriteLine("ip resultat von {0}: {1}", fqdn, ip.ToString());
-                Console.WriteLine("*************************************Network Checks finished, Dauer {0}************************************", sw.ElapsedMilliseconds) ;
+                //Console.WriteLine("ip resultat von {0}: {1}", fqdn, ip.ToString());
+                //Console.WriteLine("*************************************Network Checks finished, Dauer {0}************************************", sw.ElapsedMilliseconds) ;
 
                 sw.Stop();
                 return ip;

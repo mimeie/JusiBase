@@ -20,13 +20,13 @@ namespace JusiBase
         private string IOBrokerGetApi()
         {
             string getApi = IOBrokerRequest + IOBrokerGetHost + "/" + IOBrokerParameter;
-            Console.WriteLine("getAPI: {0}", getApi);
+            //Console.WriteLine("getAPI: {0}", getApi);
             return getApi;
         }
         private string IOBrokerSetApi()
         {
             string setApi = IOBrokerRequest + IOBrokerSetHost + "/" + IOBrokerParameter;
-            Console.WriteLine("setAPI: {0}", setApi);
+            //Console.WriteLine("setAPI: {0}", setApi);
             return setApi;
         }      
 
@@ -45,11 +45,12 @@ namespace JusiBase
                     IOBrokerJSONGet ioJson = new IOBrokerJSONGet();
 
                     string downString = IOBrokerGetApi() + System.Web.HttpUtility.UrlEncode(objectId);
-                    Console.WriteLine("Download String '{0}'", downString);
+                    //Console.WriteLine("Download String '{0}'", downString);
 
                     var json = wc.DownloadString(downString);
                     ioJson = JsonConvert.DeserializeObject<IOBrokerJSONGet>(json);
-                    Console.WriteLine("result value {0}", ioJson.val);
+                    //Console.WriteLine("result value {0}", ioJson.val);
+                    Console.WriteLine("Download String '{0}', Result: {1}", downString, ioJson.val);
                     return ioJson;
                 }
 

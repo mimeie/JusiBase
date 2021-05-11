@@ -31,7 +31,7 @@ namespace JusiBase
             {
                 if (jsonResult == null && jsonResult.valBool != null)
                 {
-                    Console.WriteLine("keine Daten erhalten");
+                    Console.WriteLine("Error: keine Daten erhalten");
                     return;
                 }
                 LastChange = jsonResult.LastChange;
@@ -42,7 +42,7 @@ namespace JusiBase
             {
                 if (jsonResult == null && jsonResult.valInt != null)
                 {
-                    Console.WriteLine("keine Daten erhalten");
+                    Console.WriteLine("Error: keine Daten erhalten");
                     return;
                 }
                 if (jsonResult.valInt.Value == 255)

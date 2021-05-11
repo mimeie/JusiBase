@@ -31,7 +31,7 @@ namespace JusiBase
             IOBrokerJSONGet jsonResult = clusterConn.GetIOBrokerValue(ObjektId);
             if (jsonResult == null && jsonResult.valBool != null)
             {
-                Console.WriteLine("keine Daten erhalten");
+                Console.WriteLine("Error: keine Daten erhalten");
                 return;
             }
             Status = jsonResult.valBool.Value;

@@ -19,7 +19,7 @@ namespace JusiBase
         private string IOBrokerGetApi()
         {
             string getApi = IOBrokerAddress() +  IOBrokerGetParameter;
-            Console.WriteLine("getAPI: {0}", getApi);
+            //Console.WriteLine("getAPI: {0}", getApi);
             return getApi;
         }
         private string IOBrokerSetApi()
