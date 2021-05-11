@@ -99,7 +99,7 @@ namespace JusiBaseTest
             {
                 IOBrokerJSONGet ioJson = new IOBrokerJSONGet();
                 IOBrokerClusterConnector wc = new IOBrokerClusterConnector();
-                ioJson= wc.GetIOBrokerValue("zwave2.0.Node_003.Multilevel_Sensor.humidity");
+                ioJson= wc.GetIOBrokerValue("zwave2.0.Node_003.Basic.currentValue");
                                 
 
             }

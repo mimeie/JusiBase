@@ -16,6 +16,26 @@ namespace JusiBaseTest
         public Schalter SchalterBool;
 
         [TestMethod]
+        public void TestObjektIntToBool()
+        {
+            try
+            {
+                DebugBool = new SensorBool("zwave2.0.Node_003.Basic.currentValue",SourceType.Integer);
+
+                DebugBool.DataChange += DoDataChange;
+
+
+                DebugBool.RaiseDataChange(true);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Fehler beim TestObjektEvent", ex);
+                //throw;
+            }
+        }
+
+        [TestMethod]
         public void TestObjektEvent()
         {
             try
