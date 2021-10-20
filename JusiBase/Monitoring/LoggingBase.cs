@@ -33,11 +33,13 @@ namespace JusiBase
             logelastic = elastictarget;
 
             //Standardfelder hinzufügen
+            logelastic.Fields.Add(new Field() { Name = "Logger", Layout = "${logger}" });
             logelastic.Fields.Add(new Field() { Name = "Host", Layout = "${hostname}" });
-
-
-
-
+            logelastic.Fields.Add(new Field() { Name = "CallSite", Layout = "${callsite:className=true:filename=false:includeNamespace=false}" });
+            logelastic.Fields.Add(new Field() { Name = "ThreadId", Layout = "${threadid}" });
+            logelastic.Fields.Add(new Field() { Name = "Exception", Layout = "${exception}" });
+            logelastic.Fields.Add(new Field() { Name = "StackTrace", Layout = "${stacktrace}" });
+       
 
             // Rules for mapping loggers to targets
             config.AddRule(logLevelMin, logLevelMax, logelastic);
