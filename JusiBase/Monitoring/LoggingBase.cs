@@ -32,8 +32,11 @@ namespace JusiBase
             config = new NLog.Config.LoggingConfiguration();
             logelastic = elastictarget;
 
+            //Standardfelder hinzufügen
+            logelastic.Fields.Add(new Field() { Name = "Host", Layout = "${hostname}" });
 
-           
+
+
 
 
             // Rules for mapping loggers to targets
