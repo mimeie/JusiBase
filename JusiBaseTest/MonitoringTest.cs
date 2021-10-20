@@ -26,7 +26,7 @@ namespace JusiBaseTest
                 Index = "JusiBase-${level}-${date:format=yyyy-MM-dd}",
                 //Index = "historianWriter-${level}-${date:format=yyyy-MM-dd}",
                 //Layout = "${logger} | ${threadid} | ${message}",
-                Layout = "${longdate}|${event-properties:item=EventId_Id}|${uppercase:${level}}|${logger}|${message} ${exception:format=tostring}|url: ${aspnet-request-url}|action: ${aspnet-mvc-action}",
+                Layout = "${message}",
                 IncludeAllProperties = true,
             };
             JusiBase.LoggingBase logging = new LoggingBase(logelasticlogelastic, NLog.LogLevel.Debug, NLog.LogLevel.Fatal);
@@ -38,12 +38,13 @@ namespace JusiBaseTest
             try
             {
                
-                logger.WithProperty("Prozess", logger.Name).Info("JusiBase-Test");
+                logger.Info("JusiBase-Test");
+                throw new NullReferenceException("test ist null");
             }
 
             catch (Exception ex)
             {
-                Console.WriteLine("Fehler beim Testen des Loggen", ex);
+                logger.Error("Fehler beim Testen des Loggen", ex);
                 //throw;
             }
 

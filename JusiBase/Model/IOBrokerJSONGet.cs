@@ -12,6 +12,8 @@ namespace JusiBase
         public string type { get; set; }
         public long ts { get; set; }
         public long lc { get; set; }
+        public IOBrokerJSONCommon common { get; set; }
+
 
 
 

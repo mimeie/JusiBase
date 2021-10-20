@@ -45,6 +45,7 @@ namespace JusiBaseTest
             }
         }
 
+      
         private IOBrokerJSONGet getResult(string iobrokertag)
         {
             
@@ -53,7 +54,7 @@ namespace JusiBaseTest
             
             IOBrokerClusterConnector wc = new IOBrokerClusterConnector();
            
-            ioJson = wc.GetIOBrokerValue("zwave2.0.Node_003.Multilevel_Sensor.humidity");
+            ioJson = wc.GetIOBrokerValue("zigbee.0.00158d00045c0c7c.temperature");
 
 
             
@@ -70,7 +71,7 @@ namespace JusiBaseTest
                 Stopwatch sw = new Stopwatch();
                 sw.Start();
 
-                ioJson = getResult("zwave2.0.Node_003.Multilevel_Sensor.humidity");
+                ioJson = getResult("zigbee.0.00158d00045c0c7c.temperature");
                 ioJson = getResult("zwave2.0.Node_003.Multilevel_Sensor.humidity");
                 ioJson = getResult("zwave2.0.Node_003.Multilevel_Sensor.humidity");
                 ioJson = getResult("zwave2.0.Node_003.Multilevel_Sensor.humidity");
@@ -213,7 +214,7 @@ namespace JusiBaseTest
             {
                 IOBrokerJSONGet ioJson = new IOBrokerJSONGet();
                 IOBrokerWebConnector wc = new IOBrokerWebConnector();
-                ioJson = wc.GetIOBrokerValue("zwave2.0.Node_003.Multilevel_Sensor.humidity");
+                ioJson = wc.GetIOBrokerValue("zigbee.0.00158d00045c0c7c.temperature");
 
 
             }
